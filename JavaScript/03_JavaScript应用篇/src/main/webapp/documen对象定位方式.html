@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    function fun1(){
+      var myArray = document.getElementsByName("deptNo");
+      for (var i=0;i<myArray.length;i++){
+        var domobj = myArray[i];
+        window.alert("部门"+domobj.value);
+      }
+    }
+  </script>
+</head>
+
+<body>
+<input type="checkbox" name="deptNo" value="10">部门10
+<input type="checkbox" name="deptNo" value="20">部门20
+<input type="checkbox" name="deptNo" value="30">部门30
+
+<input type="button" value="获得所有name等于deptNo的标签value值" onclick="fun1()">
+</body>
+</html>

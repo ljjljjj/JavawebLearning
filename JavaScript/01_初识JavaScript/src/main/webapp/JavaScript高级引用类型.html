@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--高级引用类型object和function-->
+<script type="text/javascript">
+  //object类型JavaScript中所有通过【构造函数】生成的对象都是object类型
+
+  var obj1 = new Date();//返回一个日期对象
+  var obj2 = new Array();//返回一个数组对象
+  var obj3 = new Object();//返回一个object类型对象
+
+  window.alert("obj1数据类型："+typeof obj1);
+  window.alert("obj2数据类型："+typeof obj2);
+  window.alert("obj3数据类型："+typeof obj3);
+
+  //function类型，相当于Java中（java.lang.reflect.Method）
+  //JavaScript所有函数都是function类型
+  //声明一个函数，函数名fun1
+  function fun3(){
+    window.alert("fun3 is run...")
+  }
+  window.alert("fun3的数据类型："+typeof fun3)
+
+</script>
+</body>
+</html>

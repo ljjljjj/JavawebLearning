@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    /*
+        type="text/javascript"
+        通知浏览器在解析<script>标签时
+        需要使用【文本编辑器】和【JavaScript命令编辑器】
+     */
+    //声明一个处理请求函数
+    function fun1(){
+      //读取one与two两个文本框的value属性值
+      var num1 = document.getElementById("one").value;
+      var num2 = document.getElementById("two").value;
+      //进行业务处理，加法运算
+      var num3 = parseInt(num1) + parseInt(num2);
+      //将运算结果写入到three文本框value
+      document.getElementById("three").value = num3;
+
+    }
+  </script>
+
+
+</head>
+<body>
+  <table border="2" align="center">
+    <tr>
+      <td>数字1</td>
+      <td><input type="text" id="one"></td>
+    </tr>
+    <tr>
+      <td>数字2</td>
+      <td><input type="text" id="two"></td>
+    </tr>
+    <tr>
+      <td>运算结果</td>
+      <td><input type="text" id="three"></td>
+    </tr>
+    <tr align="center">
+      <td colspan="2">
+      <input type="button" value="加法运算" onclick="fun1()">
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

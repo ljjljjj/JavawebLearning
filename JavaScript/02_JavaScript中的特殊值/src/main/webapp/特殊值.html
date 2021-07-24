@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+
+  //JavaScript中所有变量在没有赋值时，默认值都是undefined
+
+  var num1;//num1的默认值 undefined
+  var num2 = undefined;
+  window.alert("num1的值："+num1 + ";  num1的数据类型：" +typeof num1)
+  window.alert("num2的值："+num1 + ";  num2的数据类型：" +typeof num2)
+
+  //当一个对象赋值为null时，表示对象引用了一个【空内存】
+  //这个【空内存】既不能存储数据也不能读取数据
+  //此时这个对象数据类型仍然被认为时object类型
+
+  var num3 = null
+  window.alert("num3的值："+num3 + ";  num3的数据类型：" +typeof num3)
+
+  //JavaScript中当一个变量赋值为NaN，表示变量接收了一个【非法数字】(abc123)
+  //此时这个变量数据类型，在JavaScript中仍然认为是number类型
+
+  var num4 = NaN;
+  var num5 = parseInt("abc123")
+  window.alert("num4的值："+num4 + ";  num4的数据类型：" +typeof num4)
+  window.alert("num5的值："+num5 + ";  num5的数据类型：" +typeof num5)
+
+  //infinity：JavaScript中当一个变量赋值为infinity，表示变量接收了一个【无穷大的数字】
+  // 此时这个变量数据类型，在JavaScript中仍然认为是number类型
+
+  var num6 = 1/0;
+  window.alert("num6的值："+num6+ ";   num6的数据类型： " +typeof num6 )
+</script>
+</body>
+</html>

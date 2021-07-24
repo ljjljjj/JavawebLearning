@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <script type="text/javascript">
+    //功能1，在浏览器将页面加载完毕时，自动将监听事件与标签进行绑定
+    function main(){
+      //为标题行checkbox绑定onclick事件并关联fun1
+      document.getElementById("one").onclick = fun1;
+      //为数据行所有的checked绑定onclick事件并关联fun2
+      var domArray = document.getElementsByName('ck');
+      for (var i=0;i<domArray.length;i++){
+        var domObj = domArray[i];
+        domObj.onclick = fun2;
+      }
+      //为所有数据行绑定onmouseover监听事件并关联fun3
+      domArray = document.getElementsByTagName("tr");
+      for (var i=1;i<domArray.length;i++){
+        var domObj = domArray[i];
+        domObj.onmouseover = fun3;
+        domObj.onmouseout = fun4;
+      }
+    }
+
+    //功能2，根据标题行checkbox的选中状态控制数据行所有checkbox的选中状态
+    function fun1(){
+      //1.获得标题行checkbox的选中状态属性值
+      var flag = document.getElementById("one").checked;
+      //2.定位数据行所有的checkbox对应dom对象
+      var domArray = document.getElementsByName("ck");
+      //3.设置数据行所有checkbox的选中状态
+      for (var i=0;i<domArray.length;i++){
+        var domObj = domArray[i];
+        domObj.checked = flag;
+      }
+    }
+    //功能3，根据数据行checkbox的选中状态控制标题行checkbox的选中状态
+    function fun2(){
+      //1.获得数据行上所有的checkbox的个数
+      var domArray = document.getElementsByName("ck");
+      //2.获得数据行上被选中的checkbox的个数
+      var checkedNum = 0;
+      for (var i=0;i<domArray.length;i++){
+        var domObj = domArray[i];
+        if (domObj.checked == true){
+          ++checkedNum;
+        }
+      }
+      //3.根据实际情况判断标题checkbox的状态
+      if (checkedNum == domArray.length){
+        document.getElementById("one").checked = true;
+      }else{
+        document.getElementById("one").checked = false;
+      }
+    }
+
+    //功能4，将鼠标悬停的数据行背景色设置为blue，字体为red
+    function fun3(){
+      this.style.backgroundColor="blue";
+      this.style.color = "red";
+      //this指向当前鼠标悬停的tr标签的dom对象
+    }
+
+    //功能5，将鼠标移开的数据行背景颜色设置为白色，将字体颜色设置为黑色
+    function fun4(){
+      this.style.backgroundColor='white';
+      this.style.color = 'black';
+      //this指向当前鼠标悬停的tr标签的dom对象
+    }
+
+  </script>
+
+</head>
+<body onload="main()">
+<table border="2" align="center">
+  <tr>
+    <td>
+      <input type="checkbox" id="one">全选/全不选
+    </td>
+    <td>职员姓名</td>
+    <td>职员职位</td>
+    <td>职员工资</td>
+  </tr>
+  <!--this指向当前tr标签关联的dom对象-->
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>mike</td>
+    <td>初级程序员</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>Smith</td>
+    <td>高级程序员</td>
+    <td>40000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>king</td>
+    <td>架构师</td>
+    <td>50000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>Jones</td>
+    <td>产品经理</td>
+    <td>15000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>老刘</td>
+    <td>人事经理</td>
+    <td>7000</td>
+  </tr>
+</table>
+</body>
+</html>

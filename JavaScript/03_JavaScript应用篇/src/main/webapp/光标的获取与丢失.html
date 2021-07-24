@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //检测用户是否填写原始密码
+        function fun1() {
+            //1.获得原始密码内容
+            var content = document.getElementById("one").value;
+            if (content == '') {
+                document.getElementById("one").focus();
+                document.getElementById("font_1").innerHTML = "密码不能为空"
+            } else {
+                document.getElementById("font_1").innerHTML = "*"
+            }
+        }
+
+        //检测用户密码与重复密码是否一致
+        function fun2() {
+            //1.获得原始密码内容
+            var content_1 = document.getElementById("one").value;
+            //2.获得重复密码
+            var content_2 = document.getElementById("two").value;
+
+            if (content_1 != content_2) {
+                document.getElementById("two").focus();
+                document.getElementById("font_2").innerHTML = "两次密码输入不一致"
+            } else {
+                document.getElementById("font_2").innerHTML = "*"
+            }
+        }
+    </script>
+</head>
+<body>
+<center>
+    <form action="/myweb/user/add" method="get">
+        <table border="2">
+            <tr>
+                <td>用户姓名</td>
+                <td><input type="text" name="userName"></td>
+            </tr>
+            <tr>
+                <td>用户密码</td>
+                <td><input type="password" name="password" id="one">
+                    <font id="font_1" style="color: red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td>重复密码</td>
+                <td><input type="password" name="password" id="two"
+                           onfocus="fun1()" onblur="fun2()">
+                    <font id="font_2" style="color: red">*</font>
+                </td>
+            </tr>
+            <tr>
+                <td>用户性别</td>
+                <td><input type="radio" name="sex" value="男">男
+                    <input type="radio" name="sex" value="女">女
+                </td>
+            </tr>
+            <tr>
+                <td>用户邮箱</td>
+                <td><input type="email" name="email"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="用户注册"></td>
+                <td><input type="reset"></td>
+            </tr>
+        </table>
+    </form>
+</center>
+</body>
+</html>

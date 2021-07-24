@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+  //function声明时不可以指定返回类型，形参也不能修饰
+  //function fun1(形参，形参){}
+
+  function fun1(name){
+    window.alert("Hello "+ name);
+  }
+  function fun2(n1, n2) {
+    var num = n1+n2;
+    return num;
+  }
+
+  function fun3(){
+    window.alert("瞅你咋地！！")
+  }
+  //调用
+  //直接调用
+  fun1("mike");
+  var result = fun2(13,14);
+  window.alert("result:"+result)
+</script>
+<p align="center"><input type="button" value="你瞅啥？" onclick="fun3()" align="center"></p>
+
+</body>
+</html>

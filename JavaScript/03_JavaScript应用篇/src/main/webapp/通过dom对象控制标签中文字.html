@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    function fun1(){
+      //1.得到用户在文本框输入内容
+      var content = document.getElementById("two").value;
+      //2.将得到输入内容作为文字显示内容写入到div标签之间
+      document.getElementById("one").innerText = content;
+    }
+    //////////////////////////////////
+    //innerHTML可以使用标签
+
+    function fun2(){
+      //1.得到用户在文本框输入内容
+      var content = document.getElementById("four").value;
+      //2.将得到输入内容作为文字显示内容写入到div标签之间
+      document.getElementById("three").innerHTML = content;
+    }
+  </script>
+</head>
+<body>
+<center>
+  <div id="one" style="background-color: antiquewhite;color: red;width: 300px;height: 300px">
+
+  </div>
+  <input type="text" id="two">
+  <input type="button" value="设置文字显示内容" onclick="fun1()">
+</center>
+
+
+<center>
+  <div id="three" style="background-color: blue;color: red;width: 300px;height: 300px">
+
+  </div>
+  <input type="text" id="four">
+  <input type="button" value="设置文字显示内容" onclick="fun2()">
+</center>
+</body>
+</html>

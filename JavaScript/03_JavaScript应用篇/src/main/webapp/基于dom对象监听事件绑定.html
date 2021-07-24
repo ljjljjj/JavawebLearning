@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        //this指向当前tr标签关联的dom对象
+        function fun1() {
+            this.style.backgroundColor = "blue";
+        }
+
+        function fun2() {
+            this.style.backgroundColor = "white";
+        }
+
+        //声明一个函数，这个函数在浏览器加载页面完毕后被自动调用，
+        //执行时未所有数据行绑定onmouseover和onmouseout监听事件
+        function main() {
+            //1.定位所有tr标签关联的dom对象
+            var domArray = document.getElementsByTagName("tr");
+            //2.通过循环遍历，依次通过dom对象将onmouseover和onmouseout绑定标签上
+            for (var i = 1; i < domArray.length; i++) {
+                var trDom = domArray[i];//得到数据行某个tr标签对于dom对象
+                trDom.onmouseover = fun1;
+                trDom.onmouseout = fun2;
+            }
+        }
+
+    </script>
+
+</head>
+<body onload="main()">
+<table border="2" align="center">
+    <tr>
+        <td>
+            <input type="checkbox" id="one">全选/全不选
+        </td>
+        <td>职员姓名</td>
+        <td>职员职位</td>
+        <td>职员工资</td>
+    </tr>
+    <!--this指向当前tr标签关联的dom对象-->
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>mike</td>
+        <td>初级程序员</td>
+        <td>5000</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>Smith</td>
+        <td>高级程序员</td>
+        <td>40000</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>king</td>
+        <td>架构师</td>
+        <td>50000</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>Jones</td>
+        <td>产品经理</td>
+        <td>15000</td>
+    </tr>
+    <tr>
+        <td>
+            <input type="checkbox" name="ck">
+        </td>
+        <td>老刘</td>
+        <td>人事经理</td>
+        <td>7000</td>
+    </tr>
+</table>
+</body>
+</html>

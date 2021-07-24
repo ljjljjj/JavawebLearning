@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    function fun1(){
+      var domObj = document.getElementById("one");
+      var str = domObj.value;
+      window.alert(str);
+    }
+  </script>
+</head>
+<!--onload=""监听浏览器是否将网页所有标签加载完毕-->
+<body onload="fun1()">
+<input type="text" id="one" value="你好">
+
+</body>
+</html>

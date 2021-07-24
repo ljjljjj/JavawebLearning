@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var myArray = ["allen", "smith", "tom", "mike", "jones", "tomcat", "for",
+            "while", "background-color", "java", "index", "radio"];
+
+        function fun1() {
+            //1.读取用户在文本框输入内容
+            var content = document.getElementById("one").value;
+            if (content == ""){
+              document.getElementById("two").style.display="none";
+              return;
+            }
+
+            //2.到数组中定位包含了指定内容字符串
+            var value = "";
+            for (var i = 0; i < myArray.length; i++) {
+                var str = myArray[i];
+                //"abc".indexOf("a")==0
+                //"abc".indexOf("d")==-1
+                if (str.indexOf(content) != -1) {
+                    value += str + "<br/>";
+                }
+            }
+            //3.将定位字符串作为文字显示内容填充到DIV标签
+          var domObj = document.getElementById("two");
+            if (value==""){
+              domObj.style.display="none";
+              return;
+            }
+            domObj.innerHTML = value;
+            domObj.style.display="block";//显示
+        }
+    </script>
+</head>
+<body>
+<center>
+    <div>
+        <img src="百度.jpg" width="270" height="129">
+    </div>
+    <input type="text" id="one" size="50" onkeyup="fun1()"/>
+    <input type="button"
+           style="background-color: aqua;color: white"
+           value="百度一下">
+    <div id="two"
+         style="background-color: antiquewhite;color: red;width: 400px;height: 300px;display: none">
+        <!--display:none隐藏-->
+    </div>
+</center>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    function fun1(domObj){
+      domObj.style.backgroundColor = "blue";
+    }
+    function fun2(domObj){
+      domObj.style.backgroundColor = "white";
+    }
+  </script>
+
+</head>
+<body>
+<table border="2" align="center">
+  <tr>
+    <td>
+      <input type="checkbox" id="one" >全选/全不选
+    </td>
+    <td>职员姓名</td>
+    <td>职员职位</td>
+    <td>职员工资</td>
+  </tr>
+  <!--this指向当前tr标签关联的dom对象-->
+  <tr onmouseover="fun1(this)" onmouseout="fun2(this)">
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>mike</td>
+    <td>初级程序员</td>
+    <td>5000</td>
+  </tr>
+  <tr onmouseover="fun1(this)" onmouseout="fun2(this)">
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>Smith</td>
+    <td>高级程序员</td>
+    <td>40000</td>
+  </tr>
+  <tr onmouseover="fun1(this)" onmouseout="fun2(this)">
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>king</td>
+    <td>架构师</td>
+    <td>50000</td>
+  </tr>
+</table>
+</body>
+</html>

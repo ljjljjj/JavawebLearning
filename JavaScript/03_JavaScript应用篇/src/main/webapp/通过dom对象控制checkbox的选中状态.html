@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <script type="text/javascript">
+    //通过标题行选中状态来控制数据行所有checkbox的选中状态
+    function fun1(){
+      //1.获得标题行上checkbox的checked属性值
+      var flag = document.getElementById("one").checked;
+      //2.定位数据行所有的checkbox
+      var domArray = document.getElementsByName("ck")
+      //3.标题行上checkbox的checked属性值依次赋值给数据行上checkbox
+      for (var i=0;i<domArray.length;i++){
+        var domObj = domArray[i];
+        domObj.checked = flag;
+      }
+    }
+  </script>
+</head>
+<body>
+<table border="2" align="center">
+  <tr>
+    <td>
+      <input type="checkbox" id="one" onclick="fun1()">全选/全不选
+    </td>
+    <td>职员姓名</td>
+    <td>职员职位</td>
+    <td>职员工资</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>mike</td>
+    <td>初级程序员</td>
+    <td>5000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>Smith</td>
+    <td>高级程序员</td>
+    <td>40000</td>
+  </tr>
+  <tr>
+    <td>
+      <input type="checkbox" name="ck">
+    </td>
+    <td>king</td>
+    <td>架构师</td>
+    <td>50000</td>
+  </tr>
+</table>
+</body>
+</html>
