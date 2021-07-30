@@ -1,0 +1,50 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--settings：控制mybatis全局行为-->
+    <settings>
+        <!--控制mybatis输出日志-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    
+    <environments default="mydev">
+        <environment id="mydev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"><!--type:指定类型-->
+                <!--数据库的驱动类名-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <!--连接数据库的url字符-->
+                <property name="url" value="jdbc:mysql://localhost:3306/springdb?serverTimezone=UTC"/><!--时区问题，添加?serverTimezone=UTC解决-->
+                <!--访问数据库的用户名-->
+                <property name="username" value="root"/>
+                <!--密码-->
+                <property name="password" value="123456"/>
+            </dataSource>
+        </environment>
+
+        <environment id="online">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"><!--type:指定类型-->
+                <!--数据库的驱动类名-->
+                <property name="driver" value="com.mysql.jdbc.Driver"/>
+                <!--连接数据库的url字符-->
+                <property name="url" value="jdbc:mysql://localhost:3306/onlinedb?serverTimezone=UTC"/>
+                <!--访问数据库的用户名-->
+                <property name="username" value="root"/>
+                <!--密码-->
+                <property name="password" value="sss"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--sql mapper(sql映射文件)的位置-->
+    <mappers>
+
+        <mapper resource="com/bjpowernode/dao/StudentDao.xml"/>
+    </mappers>
+</configuration>
+
+
+<!--
+
+-->

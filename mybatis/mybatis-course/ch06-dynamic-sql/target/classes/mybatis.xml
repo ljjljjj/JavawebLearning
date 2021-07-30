@@ -1,0 +1,58 @@
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--指定properties文件的位置，从类路径根开始找文件-->
+    <properties resource="jdbc.properties"/>
+
+
+
+
+
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    
+    <!--自定义别名
+    type:全限定名称
+    alias:别名
+
+    也可使用<package name="定位到包"/>别名直接使用类名
+    -->
+    <typeAliases>
+        <typeAlias type="com.bjpowernode.domain.Student" alias="student"/>
+<!--        <package name="com.bjpowernode.domain"/>-->
+    </typeAliases>
+    
+    <!--配置插件-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
+    
+    <environments default="mydev">
+        <environment id="mydev">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"><!--type:指定类型-->
+                <!--数据库的驱动类名-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--连接数据库的url字符-->
+                <property name="url" value="${jdbc.url}"/>
+                <!--访问数据库的用户名-->
+                <property name="username" value="${jdbc.user}"/>
+                <!--密码-->
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+
+    <!--sql mapper(sql映射文件)的位置-->
+<!--    <mappers>-->
+<!--        <mapper resource="com/bjpowernode/dao/StudentDao.xml"/>-->
+<!--    </mappers>-->
+
+    <mappers>
+<!--        1.mapper文件名要和接口名一模一样-->
+<!--        2.mapper文件和dao接口要在同一目录-->
+        <package name="com.bjpowernode.dao"/>
+    </mappers>
+</configuration>

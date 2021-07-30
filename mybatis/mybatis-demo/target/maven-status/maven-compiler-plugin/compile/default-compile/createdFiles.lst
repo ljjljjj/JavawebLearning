@@ -1,0 +1,5 @@
+com\bjpowernode\MyApp2.class
+com\bjpowernode\domain\Student.class
+com\bjpowernode\MyApp.class
+com\bjpowernode\utils\MyBatisUtils.class
+com\bjpowernode\dao\StudentDao.class

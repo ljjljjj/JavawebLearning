@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTDMapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bjpowernode.dao.StudentDao">
+    <select id="selectStudentById" parameterType="java.lang.Integer" resultType="student">
+        select id,name,email,age from student where id=#{id}
+    </select>
+    <!--多个参数使用@param命名-->
+    <select id="selectMultiParam" resultType="com.bjpowernode.domain.Student">
+        select id,name,email,age from student where name=#{myname} or age=#{myage}
+    </select>
+
+    <select id="selectviewStudent" resultType="com.bjpowernode.domain.viewStudent">
+        select id,name,email,age from student where id=#{id}
+    </select>
+
+    <select id="studentCount" resultType="int">
+        select count(*)  from student
+    </select>
+
+    <!--返回map
+    1.列名是map的key，列值是map的value
+    2.只能返回最多一行记录，
+    -->
+    <select id="selectMapById" resultType="java.util.HashMap">
+        select id ,name from student where id = #{stuid}
+    </select>
+
+
+    <!--定义resultMap
+    id:自定义名称，表示你定义的这个resultMap
+    type：Java类型的全限定名称
+    -->
+    <resultMap id="studentMap" type="com.bjpowernode.domain.Student">
+<!--        主键列，使用id-->
+        <id column="id"  property="id"/>
+<!--        非主键列，使用result-->
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="age" property="age"/>
+    </resultMap>
+
+
+    <select id="selectAllStudent" resultMap="studentMap">
+        select id,name,email,age from student
+    </select>
+
+<!--列名和属性名不同的两种解决方案-->
+<!--    1.resultMap-->
+<!--    2.使用列别名-->
+    <resultMap id="myStudentMap" type="com.bjpowernode.domain.MyStudent">
+        <id column="id"  property="sid"/>
+        <result column="name" property="sname"/>
+        <result column="email" property="semail"/>
+        <result column="age" property="sage"/>
+    </resultMap>
+    <select id="selectAllMyStudent" resultMap="myStudentMap">
+        select id,name,email,age from student
+    </select>
+
+    <select id="selectDiffColProperty" resultType="com.bjpowernode.domain.MyStudent">
+        select id as sid,name as sname,email as semail,age as sage from student
+    </select>
+
+<!--    like:模糊查询的方案-->
+    <select id="selectLikeOne" resultType="com.bjpowernode.domain.Student">
+        select id,name,email,age from student where name like #{name}
+    </select>
+
+    <!--    like:模糊查询的方案-->
+<!--    like：模糊查询，在mapper文件中拼接like的内容-->
+    <select id="selectLikeTwo" resultType="com.bjpowernode.domain.Student">
+        select id,name,email,age from student where name like "%" #{name} "%"
+    </select>
+</mapper>
