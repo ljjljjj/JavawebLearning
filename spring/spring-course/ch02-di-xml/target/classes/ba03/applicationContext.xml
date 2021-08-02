@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--声明student对象
+        注入：就是赋值的意思
+        di:给属性赋值
+        简单类型：spring中规定Java的基本数据类型和String都是简单类型
+        1.set注入（设值注入）：spring调用类的set方法，你可以在set方法中完成属性赋值
+        1）简单类型的set注入
+
+        2）引用类型的set注入：spring调用类的set方法
+        <property name="age" value="20"/>
+
+
+        3）构造注入：spring调用类有参构造方法，在创建对象的同时，在构造方法中给属性赋值
+        构造注入使用<constructor-arg>标签
+
+
+
+    -->
+        <!--使用name属性实现构造注入-->
+    <bean id="myStudent" class="com.bjpowernode.ba03.Student">
+        <constructor-arg name="name" value="张三"/>
+        <constructor-arg name="age" value="20"/>
+        <constructor-arg name="school" ref="myxuexiao"/>
+    </bean>
+    <!--使用index属性-->
+    <bean id="myStudent2" class="com.bjpowernode.ba03.Student">
+        <constructor-arg index="0" value="李四"/>
+        <constructor-arg index="1" value="22"/>
+        <constructor-arg index="2" ref="myxuexiao2"/>
+    </bean>
+
+    <bean id="myxuexiao" class="com.bjpowernode.ba03.School">
+        <property name="name"  value="北京大学"/>
+        <property name="address" value="北京海淀区"/>
+    </bean>
+
+    <bean id="myxuexiao2" class="com.bjpowernode.ba03.School">
+        <property name="name"  value="清华大学"/>
+        <property name="address" value="北京海淀区"/>
+    </bean>
+
+</beans>
